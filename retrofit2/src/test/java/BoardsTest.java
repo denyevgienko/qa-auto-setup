@@ -12,7 +12,7 @@ public class BoardsTest {
 
     @Test
     public void createBoardTest() throws IOException {
-        Response<Board> testBoardResponse = client.boardsServicel.createBoard("TestBoard").execute();
+        Response<Board> testBoardResponse = client.boardsServicel.createBoard("TestBoardTest").execute();
         Assert.assertEquals(testBoardResponse.code(), 200);
 
         System.out.println("Headers:");
