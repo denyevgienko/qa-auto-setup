@@ -28,6 +28,9 @@
         <module>retrofit2</module>
         <module>selenide</module>
         <module>selenium</module>
+        <module>common-properties</module>
+        <module>github-actions</module>
+        <module>java-sheets</module>
     </modules>
 
     <dependencies>
