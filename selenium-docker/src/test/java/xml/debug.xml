@@ -3,7 +3,7 @@
 <suite name="Suite">
     <test parallel="methods" thread-count="4" name="Test">
         <classes>
-            <class name="DockerChromeTest"/>
+            <class name="test.files.DockerChromeTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
