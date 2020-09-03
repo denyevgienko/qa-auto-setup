@@ -31,6 +31,7 @@
         <module>common-properties</module>
         <module>github-actions</module>
         <module>java-sheets</module>
+        <module>selenium-docker</module>
     </modules>
 
     <dependencies>
