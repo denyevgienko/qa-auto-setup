@@ -1,3 +1,5 @@
+package test.files;
+
 import driver.manager.WebDriverManager;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
