@@ -20,7 +20,29 @@
                 </suiteXmlFiles>
             </configuration>
         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>8</source>
+                <target>8</target>
+            </configuration>
+        </plugin>
     </plugins>
+    <resources>
+        <!-- config root resource directory -->
+        <resource>
+            <directory>${basedir}/src/main</directory>
+        </resource>
+        <!-- log resource directory -->
+        <resource>
+            <directory>${basedir}/src</directory>
+        </resource>
+        <!-- jsfiller resource directory -->
+        <resource>
+            <directory>${basedir}src/main/java/docker/compose/files</directory>
+        </resource>
+    </resources>
 </build>
 
 
