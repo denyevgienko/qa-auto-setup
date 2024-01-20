@@ -25,11 +25,9 @@ jobs:
         with:
             distribution: 'temurin'
             java-version: '17'
-            cache: 'maven'
-            run: java --version
 
       - name: run selenide tests
         run:
-           mvn clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
+           ./mvnw clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
 
 
