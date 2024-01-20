@@ -45,5 +45,5 @@ jobs:
         if: always()
         with:
           name: allure-report-artifact
-          path: selenide-tests/target/allure-report
+          path: selenide-tests/target
           retention-days: 5
