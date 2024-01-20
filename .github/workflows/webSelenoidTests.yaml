@@ -1,7 +1,6 @@
 name: Run UI selenoid tests
 
 on:
-  branches: [ develop ]
   workflow_dispatch:
 
 jobs:
