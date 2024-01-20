@@ -21,7 +21,7 @@ public class BaseTest {
         //mutableCapabilities.setCapability("browserVersion", browserVersion);
         mutableCapabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
-                "enableVideo", true,
+                "enableVideo", false,
                 "name", "aqa-setup-test"
         ));
         return mutableCapabilities;
