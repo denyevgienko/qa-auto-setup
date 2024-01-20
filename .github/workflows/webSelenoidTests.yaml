@@ -27,7 +27,23 @@ jobs:
             java-version: '17'
 
       - name: run selenide tests
-        run:
-           ./mvnw clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
+        run: ./mvnw clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
 
+      - name: install allure
+        run: |
+            sudo apt-get install default-jre
+            wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
+            sudo dpkg -i allure_2.18.1-1_all.deb
+            allure --version
 
+      - name: allure-generate
+        working-directory: ./selenide-tests/target/
+        run: allure generate
+
+      - name: attach-report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-report-artifact
+          path: selenide-tests/target
+          retention-days: 5
