@@ -18,7 +18,7 @@ public class BaseTest {
         String browserVersion = "119.0";
 
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
-        mutableCapabilities.setCapability("browserVersion", browserVersion);
+        //mutableCapabilities.setCapability("browserVersion", browserVersion);
         mutableCapabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true,
