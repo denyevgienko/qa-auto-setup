@@ -1,13 +1,14 @@
 name: Run UI selenoid tests
 
 on:
-  workflow_dispatch:
   push:
     branches: [ develop ]
 
+    workflow_dispatch:
+
 jobs:
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Start selenoid server
