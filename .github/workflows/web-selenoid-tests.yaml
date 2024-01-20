@@ -1,7 +1,11 @@
 name: Run UI tests
 
+on:
+  push:
+    branches: [ main ]
+
+
 workflow dispatch:
-  branches: [ main ]
 
 jobs:
   build:
