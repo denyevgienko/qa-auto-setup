@@ -27,7 +27,9 @@ jobs:
             java-version: '17'
 
       - name: run selenide tests
-        run: ./mvnw clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
+        run: |
+            ./mvnw clean install
+            ./mvnw clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
 
       - name: install allure
         run: |
