@@ -19,7 +19,7 @@ public class BookTest extends MainConfig {
         apiBaseSteps.signInUnderNewUser();
     }
 
-    @Test()
+    @Test(description = "add random contact to the book using api for setup")
     public void addRandomContact() {
         $(".contacts").should(Condition.visible);
         $(".contactTableBodyRow").should(Condition.hidden);

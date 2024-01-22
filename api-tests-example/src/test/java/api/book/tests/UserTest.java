@@ -42,7 +42,7 @@ public class UserTest {
     }
 
 
-    @Test()
+    @Test(description = "add random contact")
     public void addContact() {
         Response response = given()
                 .header(new Header("Authorization", "Bearer ".concat(userResponse.token)))
@@ -54,7 +54,7 @@ public class UserTest {
         Assert.assertEquals(response.statusCode(), 201);
     }
 
-    @Test()
+    @Test(description = "check user info")
     public void getUserInfo() {
         Response response = given()
                 .header(new Header("Authorization", "Bearer ".concat(userResponse.token)))
@@ -65,7 +65,7 @@ public class UserTest {
         Assert.assertEquals(response.statusCode(), 200);
     }
 
-    @Test(dependsOnMethods = {"addContact"})
+    @Test(dependsOnMethods = {"addContact"}, description = "check contacts info")
     public void getContacts() {
         Response response = given()
                 .header(new Header("Authorization", "Bearer ".concat(userResponse.token)))
