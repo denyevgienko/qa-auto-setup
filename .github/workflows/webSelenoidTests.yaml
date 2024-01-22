@@ -28,7 +28,7 @@ jobs:
 
       - name: run selenide tests
         run: |
-            ./mvnw clean install
+            ./mvnw clean install -DskipTests
             ./mvnw clean test -pl :selenide-tests -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
 
       - name: install allure
