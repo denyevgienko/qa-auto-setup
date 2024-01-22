@@ -1,29 +1,22 @@
-package selenide.tests;
+package selenide.tests.chrome.test;
 
 import com.codeborne.selenide.Selenide;
+import config.MainConfig;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-public class ChromeTest {
-
-
-    @BeforeSuite
-    public void beforeSuite(){
-        BaseTest.setUp();
-        System.out.println("==>>> suite started");
-    }
+public class ChromeTest extends MainConfig {
 
     @AfterTest
-    public void after(){
+    public void after() {
         System.out.println("==>>> test stopped");
     }
 
     @BeforeTest
-    public void before(){
+    public void before() {
         System.out.println("==>>> test started");
     }
 
