@@ -1,4 +1,4 @@
-name: Run UI selenoid tests
+name: Run rest-assured api tests
 
 on:
   push:
@@ -27,5 +27,5 @@ jobs:
         if: always()
         with:
           name: allure-report-artifact
-          path: selenide-tests/target
+          path: api-tests-example/target
           retention-days: 5
