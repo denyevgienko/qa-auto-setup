@@ -1,6 +1,7 @@
 name: Run UI selenoid tests
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
