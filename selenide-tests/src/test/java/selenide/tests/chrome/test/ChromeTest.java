@@ -2,6 +2,7 @@ package selenide.tests.chrome.test;
 
 import com.codeborne.selenide.Selenide;
 import config.MainConfig;
+import io.qameta.allure.Allure;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -22,15 +23,22 @@ public class ChromeTest extends MainConfig {
 
     @Test(description = "check google title")
     public void testTitleGoogle() {
-        Selenide.open("https://google.com");
+        Allure.step("Open google page", () -> {
+            Selenide.open("https://google.com");
+        });
         System.out.println("Get google title result ==>>>" + Selenide.title());
         Selenide.sleep(5000);
-        Assert.assertTrue(Selenide.title().equals("Google"));
+        Allure.step("Check google title", () -> {
+            Assert.assertEquals(Selenide.title(), "Google");
+        });
     }
 
     @Test(description = "check google open")
     public void testOpenGoogle() {
-        Selenide.open("https://google.com");
-        Selenide.sleep(3000);
+        Allure.step("Open google page and wait few seconds", () -> {
+            Selenide.open("https://google.com");
+            Selenide.sleep(3000);
+        });
+
     }
 }

@@ -3,6 +3,7 @@ package selenide.tests.book.test;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import config.MainConfig;
+import io.qameta.allure.Allure;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.ApiBaseSteps;
@@ -21,16 +22,20 @@ public class BookTest extends MainConfig {
 
     @Test(description = "add random contact to the book using api for setup")
     public void addRandomContact() {
-        $(".contacts").should(Condition.visible);
-        $(".contactTableBodyRow").should(Condition.hidden);
+        Allure.step("check that user logged in and table empty", () -> {
+            $(".contacts").should(Condition.visible);
+            $(".contactTableBodyRow").should(Condition.hidden);
+        });
         apiBaseSteps.addContact();
         apiBaseSteps.getContacts();
         sleep(3000);
-        Selenide.refresh();
-        $(".contactTableBodyRow")
-                .should(Condition.visible)
-                .should(Condition.text(apiBaseSteps.contactList[0].firstName))
-                .should(Condition.text(apiBaseSteps.contactList[0].lastName));
+        Allure.step("reload page", Selenide::refresh);
+        Allure.step("Check that contact was added by api using api", () -> {
+            $(".contactTableBodyRow")
+                    .should(Condition.visible)
+                    .should(Condition.text(apiBaseSteps.contactList[0].firstName))
+                    .should(Condition.text(apiBaseSteps.contactList[0].lastName));
+        });
         sleep(3000);
     }
 }

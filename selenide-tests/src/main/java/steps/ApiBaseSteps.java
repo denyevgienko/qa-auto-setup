@@ -7,6 +7,7 @@ import POJO.Responces.UserResponse;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import config.MainConfig;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
@@ -24,6 +25,7 @@ public class ApiBaseSteps extends MainConfig {
         this.userResponse = createUser();
     }
 
+    @Step("Sign in using api and open contact page")
     public void signInUnderNewUser() {
         String token = userResponse.token;
         Selenide.open("https://thinking-tester-contact-list.herokuapp.com/");
@@ -33,6 +35,7 @@ public class ApiBaseSteps extends MainConfig {
         Selenide.open("https://thinking-tester-contact-list.herokuapp.com/contactList");
     }
 
+    @Step("Create user using api")
     public UserResponse createUser() {
         Response response = given()
                 .baseUri(RestAssuredClient.baseApiUrl.concat(RestAssuredClient.registerUser))
@@ -43,7 +46,7 @@ public class ApiBaseSteps extends MainConfig {
         return response.as(UserResponse.class);
     }
 
-
+    @Step("Add contact using api")
     public void addContact() {
         Response response = given()
                 .header(new Header("Authorization", "Bearer ".concat(userResponse.token)))
@@ -53,7 +56,7 @@ public class ApiBaseSteps extends MainConfig {
                 .post();
     }
 
-
+    @Step("Get contact list using api")
     public ListOfContactResponses[] getContacts() {
         Response response = given()
                 .header(new Header("Authorization", "Bearer ".concat(userResponse.token)))
