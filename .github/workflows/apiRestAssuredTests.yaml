@@ -1,0 +1,30 @@
+name: Run UI selenoid tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout project with tests
+        uses: actions/checkout@v4
+
+      - name: Setup java 17
+        uses: actions/setup-java@v4
+        with:
+            distribution: 'temurin'
+            java-version: '17'
+
+      - name: run api rest-assured tests
+        run: ./mvnw clean test -pl :api-tests-example -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
+
+      - name: attach-report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-report-artifact
+          path: selenide-tests/target
+          retention-days: 5
