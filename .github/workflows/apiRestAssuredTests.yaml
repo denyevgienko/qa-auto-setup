@@ -1,7 +1,6 @@
 name: Run rest-assured api tests
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
