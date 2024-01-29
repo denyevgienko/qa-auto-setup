@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
             distribution: 'temurin'
-            java-version: '17'
+            java-version: '21'
 
       - name: run api rest-assured tests
         run: ./mvnw clean test -pl :api-tests-example -e -DsuiteXmlFile=src/test/resources/xmls/debug.xml
